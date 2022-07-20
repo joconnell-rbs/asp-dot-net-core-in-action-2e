@@ -18,7 +18,7 @@ namespace ConvertingToMVC
         public List<ToDoListModel> GetItemsForCategory(string category)
         {
             // filter by the provided category
-            return _items.Where(x => x.Category == category).ToList();
+            return _items.Where(x => string.Compare(x.Category, category, true) == 0).ToList();
         }
     }
 }
