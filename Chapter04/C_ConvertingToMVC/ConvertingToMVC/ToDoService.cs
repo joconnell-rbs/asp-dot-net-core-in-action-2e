@@ -20,5 +20,11 @@ namespace ConvertingToMVC
             // filter by the provided category
             return _items.Where(x => string.Compare(x.Category, category, true) == 0).ToList();
         }
+
+        public ToDoListModel AddItem(ToDoListModel item)
+        {
+            _items.Add(item);
+            return item;
+        }
     }
 }

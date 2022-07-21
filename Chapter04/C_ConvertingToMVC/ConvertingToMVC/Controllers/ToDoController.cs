@@ -23,5 +23,14 @@ namespace ConvertingToMVC
 
             return View(viewModel);
         }
+
+        public ActionResult Add(string id, string name)
+        {
+            var newItem = _service.AddItem(new ToDoListModel { Category = id, Title = name });
+            var items = _service.GetItemsForCategory(id);
+            var vm = new CategoryViewModel(items);
+
+            return View(vm);
+        }
     }
 }
